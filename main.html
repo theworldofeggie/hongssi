@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>홍씨의 세계 | It's Me, Hongssi!</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- 너비를 장치 너비로 설정 -->
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+            <link rel="shortcut icon" href="assets/favicon.ico">
+            
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Poppins:600,900');
+            body {
+                width: 100%;
+                background: #FFDEC4;
+                -ms-user-select: none;
+                -moz-user-select: -moz-none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                user-select: none;
+            }
+            p{
+                font-family: 'Poppins', sans-serif;
+                color: #ff8b61;
+                font-weight: 900;
+                display: block;
+                font-size: 3rem;
+                text-align: center;
+            }
+            .container {
+                width: 100%;
+                overflow: hidden;
+            }
+            .nest {
+                height: 43.75rem;
+                background-image: url("assets/nest.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+                text-align: center;
+                background-position: center;
+            }
+            .eggs img {
+                width: 12rem;
+                height: 14rem;
+            }
+            .back {
+                margin-top: 1.875rem;
+            }
+            .back img:nth-child(1) {
+                margin-bottom: -5rem;
+                margin-right: 1.25rem;
+            }
+            .back img:nth-child(2) {
+                margin-right: 3.125rem;
+                margin-left: -3.75rem;
+            }
+            .back img:nth-child(3) {
+                margin-right: 3.125rem;
+            }
+            .back img:nth-child(4) {
+                margin-left: -9.375rem;
+                margin-bottom: -7.5rem;
+            }
+            #unique {
+                display: flex;
+                justify-content: center;
+                margin-top: -8.5rem;
+                animation: unique-ani 2s linear infinite;
+            }
+            .front {
+                margin-top: -4rem;
+            }
+            .front img:nth-child(1) {
+                margin-left: -3.125rem;
+                margin-bottom: 1rem;
+            }
+            .front img:nth-child(2) {
+                margin-left: -3.125rem;
+                margin-bottom: -2rem;
+            }
+            .front img:nth-child(3) {
+                margin-bottom: -1rem;
+            }
+            @keyframes unique-ani {
+                0% {
+                    transform: rotate(0deg);
+                }
+                25% {
+                    transform: rotate(10deg);
+                }
+                75% {
+                    transform: rotate(-10deg);
+                }
+                100% {
+                    transform: rotate(0deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <p>What's This?</p>
+            <div class="nest">
+                <div class="eggs">
+                    <div class="back">
+                        <img src="assets/normal-egg.png">
+                        <img src="assets/normal-egg.png">
+                        <img src="assets/normal-egg.png">
+                        <img src="assets/normal-egg.png">
+                    </div>
+                    <div id="unique">
+                        <img
+                            id="unique-unhover"
+                            onclick="changeImg()"
+                            onmouseout="hideActiveImg()"
+                            onmouseover="showActiveImg()"
+                            src="assets/unique-egg.png">
+                        <img id="hongssi" style="display: none;" src="assets/hongssi.png">
+                    </div>
+                    <div class="front">
+                        <img src="assets/normal-egg.png">
+                        <img src="assets/normal-egg.png">
+                        <img src="assets/normal-egg.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function showActiveImg() {
+                document
+                    .getElementById('unique-unhover')
+                    .src = 'assets/unique-egg-hover.png';
+            }
+            function hideActiveImg() {
+                document
+                    .getElementById('unique-unhover')
+                    .src = 'assets/unique-egg.png';
+            }
+            function changeImg() {
+                document
+                    .getElementById('unique-unhover')
+                    .style
+                    .display = 'none';
+                document
+                    .getElementById('hongssi')
+                    .style
+                    .display = 'block';
+            }
+
+            document.getElementById("hongssi").onclick = () => {
+                location.href = "loading.html";
+            };
+        </script>
+    </body>
+</html>

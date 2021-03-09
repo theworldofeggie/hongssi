@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html style="background: #ff8b61;">
+    <head>
+        <title>홍씨는 누구? | Who Is Hongssi?</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- 너비를 장치 너비로 설정 -->
+        <meta name="viewport" content="width-device-width initial-scale=1.0"/>
+        <link rel="shortcut icon" href="assets/favicon.ico">
+
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Poppins:600,900');
+            @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+            body {
+                font-family: 'Poppins', sans-serif;
+                line-height: 1.6;
+                background: #FFDEC4;
+                height: 100vh;
+            }
+            body * {
+                box-sizing: border-box;
+            }
+            ul {
+                display: flex;
+                flex-flow: wrap;
+                justify-content: flex-start;
+                padding: 25px 50px 50px;
+                margin: 0;
+            }
+            ul li {
+                list-style: none;
+                flex: 0 0 auto;
+                text-align: center;
+                font-size: 25px;
+                margin-top: 25px;
+            }
+            ul li:not(:last-child) {
+                margin-right: 50px;
+            }
+            ul li a {
+                color: #ff8b61;
+                text-decoration: none;
+                /* font-weight: 900; */
+                display: block;
+                width: 100%;
+            }
+            ul li:nth-child(1) a {
+                font-family: 'Jua', sans-serif;
+                margin-top: 0.094rem;
+            }
+            ::selection {
+                text-shadow: 0.03em 0.03em 0 rgb(255 0 0 / 50%), 0.03em -0.03em 0 rgb(0 255 0 / 50%), -0.03em 0.03em 0 rgb(0 0 255 / 50%);
+                color: white;
+            }
+            .wrapper {
+                padding: 0 50px;
+            }
+            .wrapper p {
+                font-family: 'Jua', sans-serif;
+                color: white;
+                margin: 0 0 25px;
+                font-size: 1.8rem;
+                line-height: 4rem;
+                text-shadow: rgb(255 139 97) 0 0;
+            }
+            .wrapper p a {
+                color: #7ee2ca;
+                text-decoration: underline black;
+            }
+            #link-highlight {
+                background: rgba(255, 139, 97, 0.5);
+                border-radius: 999px;
+                position: absolute;
+                pointer-events: none;
+                transition: 0.15s ease;
+                height: 30px;
+                width: 30px;
+            }
+            #en-intro p {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.5rem !important;
+                font-weight: 500;
+            }
+            ::-webkit-scrollbar {
+                width: 20px;
+            }
+            ::-webkit-scrollbar-track {
+                background-color: white;
+                border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #7ee2ca;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <ul>
+            <li onclick="changeKo()">
+                <a href="#">홍씨</a>
+            </li>
+            <li onclick="changeEn()">
+                <a href="#">Hongssi</a>
+            </li>
+        </ul>
+        <div class="wrapper">
+            <div id="ko-intro">
+                <p>
+                    "안녕, 나는
+                    <a>
+                        <b>홍씨</b>
+                    </a>야!"<br>
+                    홍씨는 우리나라를 상징하는 동물 중 하나인
+                    <a>
+                        <b>까치</b>
+                    </a>에요.<br>
+                    홍씨라는 이름은 과거 까치를 위해 감 따위의 과일을 수확할 때에도 까치밥이라 하여<br>
+                    잘 익은
+                    <a>
+                        <b>홍시</b>
+                    </a>
+                    같은 여분의 과일을 그대로 남겨둔 농민들의 일화에서 유래되었어요.<br>
+                    홍씨는 깡패(?) 조류라는 타이틀을 가진 까치지만
+                    <a>순한 성격</a>을 가지고 있어요.<br>
+                    또, 까치는 잡식성이지만 홍씨는 홍시를 매우 좋아해요!
+                </p>
+            </div>
+            <div id="en-intro" style="display: none;">
+                <p>
+                    "Hi there, I'm
+                    <a>Hongssi</a>!”<br>
+                    Hongssi is a
+                    <a>Magpie</a>
+                    that is one of the representative animals of South Korea.<br>
+                    The farmers left some rest of the fruits such as
+                    <a>ripe persimmon</a><br>
+                    for Magpies to eat when harvesting.<br>
+                    Well, Magpies are called the most vicious and mischievous bird as common<br>
+                    but frankly, Hongssi has a
+                    <a>gentle personality</a>.<br>
+                    Though magpies are omnivorous, Hongssi only loves to eat ripe persimmons!
+                </p>
+            </div>
+        </div>
+        <div style="bottom: 10px; right: 0; position: absolute;">
+            <img style="width: 20rem; height: 20rem;" src="assets/hongssi-costume.png">
+        </div>
+        <div id="link-highlight"></div>
+        <script>
+            const linkHighlight = (() => {
+                const PAGE_LINKS = document.querySelectorAll('a');
+                const HIGHLIGHT = document.getElementById('link-highlight');
+                let isOnElement = false;
+
+                // move highlighter
+                const moveHighlighter = (e) => {
+                    if (isOnElement) 
+                        return false;
+                    HIGHLIGHT.style.left = `${e.pageX - 15}px`;
+                    HIGHLIGHT.style.top = `${e.pageY - 15}px`;
+                }
+                document.addEventListener('mousemove', moveHighlighter);
+
+                // apply styling over target
+                const highlightLink = (ele) => {
+                    HIGHLIGHT.style.left = `${ele.offsetLeft - 12}px`;
+                    HIGHLIGHT.style.top = `${ele.offsetTop - 6}px`;
+                    HIGHLIGHT.style.width = `${ele.offsetWidth + 24}px`;
+                    HIGHLIGHT.style.height = `${ele.offsetHeight + 12}px`;
+                    isOnElement = true;
+                };
+                PAGE_LINKS.forEach(
+                    link => link.addEventListener('mouseenter', highlightLink.bind(null, link, false))
+                );
+
+                // default styling off target
+                const unHighlightLink = () => {
+                    HIGHLIGHT.style.width = '30px';
+                    HIGHLIGHT.style.height = '30px';
+                    isOnElement = false;
+                };
+                PAGE_LINKS.forEach(
+                    link => link.addEventListener('mouseleave', unHighlightLink)
+                );
+            })();
+
+            function changeEn() {
+                document
+                    .getElementById('ko-intro')
+                    .style
+                    .display = 'none';
+                document
+                    .getElementById('en-intro')
+                    .style
+                    .display = 'block';
+            }
+            function changeKo() {
+                document
+                    .getElementById('en-intro')
+                    .style
+                    .display = 'none';
+                document
+                    .getElementById('ko-intro')
+                    .style
+                    .display = 'block';
+            }
+        </script>
+    </body>
+</html>
