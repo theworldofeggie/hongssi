@@ -5,7 +5,7 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- 너비를 장치 너비로 설정 -->
-        <meta name="viewport" content="width-device-width initial-scale=1.0"/>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
         <link rel="shortcut icon" href="assets/favicon.ico">
 
         <style>
@@ -106,10 +106,19 @@
                     width: 0;
                 }
             }
+            /* 모바일 */
+            @media (max-width: 750px) {
+                body {
+                    padding: 0;
+                }
+                #hongssi {
+                    margin-top: 15rem;
+                }
+            }
         </style>
     </head>
     <body>
-        <div>
+        <div id="hongssi">
             <img style="width: 10rem; height: 10rem;" src="assets/hongssi-ani.gif">
         </div>
         <div class="loader-box">

@@ -5,7 +5,7 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- 너비를 장치 너비로 설정 -->
-        <meta name="viewport" content="width-device-width initial-scale=1.0"/>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0"/>
         <link rel="shortcut icon" href="assets/favicon.ico">
 
         <style>
@@ -91,6 +91,21 @@
             ::-webkit-scrollbar-thumb {
                 background: #7ee2ca;
                 border-radius: 10px;
+            }
+            /* 모바일 */
+            @media (max-width: 750px) {
+                #ko-intro p {
+                    font-size: 1rem;
+                    line-height: 2rem;
+                }
+                #en-intro p {
+                    font-size: 1rem !important;
+                    line-height: 1.3rem;
+                }
+                img {
+                    width: 15rem !important;
+                    height: 15rem !important;
+                }
             }
         </style>
     </head>

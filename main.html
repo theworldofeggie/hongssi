@@ -8,8 +8,8 @@
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-            <link rel="shortcut icon" href="assets/favicon.ico">
-            
+        <link rel="shortcut icon" href="assets/favicon.ico">
+
         <style>
             @import url('https://fonts.googleapis.com/css?family=Poppins:600,900');
             body {
@@ -21,7 +21,7 @@
                 -khtml-user-select: none;
                 user-select: none;
             }
-            p{
+            p {
                 font-family: 'Poppins', sans-serif;
                 color: #ff8b61;
                 font-weight: 900;
@@ -97,6 +97,19 @@
                     transform: rotate(0deg);
                 }
             }
+            /* 모바일 */
+            @media (max-width: 750px) {
+                .nest {
+                    height: 25rem;
+                }
+                .front, .back {
+                    display: none;
+                }
+                #unique {
+                    margin-top: 12rem;
+                    padding-bottom: 6.25rem;
+                }
+            }
         </style>
     </head>
     <body>
@@ -150,9 +163,11 @@
                     .display = 'block';
             }
 
-            document.getElementById("hongssi").onclick = () => {
-                location.href = "loading.html";
-            };
+            document
+                .getElementById("hongssi")
+                .onclick = () => {
+                    location.href = "loading.html";
+                };
         </script>
     </body>
 </html>
